@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="./css/sign_up.css">
+</head>
+<body>
+  <section>
+    <div class="section_img" >회원가입</div>
+    <form action="sign_up_controller" method="post" >
+      <table >
+        <tr>
+          <td><lable for="user_id">아이디</lable></td>
+          <td><input id="user_id" class="sign_up_input" type="text" name="user_id" placeholder="6~15자리의 영문&숫자 입력"></td>
+          <td><button>중복확인</button></td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td><input class="sign_up_input" type="password" name="user_pw" placeholder="6~15자리의 영문&숫자 입력"></td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td><input class="sign_up_input" type="text" name="user_email" placeholder="Loiloi1234@naver.com"></td>
+        </tr>
+        <tr>
+          <td>주소</td>
+          <td><input class="sign_up_input" type="text" name="user_address" placeholder="도로명 주소로 입력" ></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button class="btns" type="submit">가입하기</button>
+            <button class="btns" type="reset">취소</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </section>
+
+  <script>
+
+  </script>
+</body>
+</html>

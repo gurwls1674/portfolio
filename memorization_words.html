@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단어 암기</title>
+    <link rel="stylesheet" href="./css/memorization_words.css">
+</head>
+<body>
+    <section>
+        <h3>
+            Success is walking from failure to failure with no loss of enthusiasm - Winston Churchill
+        </h3>
+        <form action="word_controller">
+            <table border="1" class="word_sheet_table">
+                <tr>
+                    <th>번호</th>
+                    <th>단어</th>
+                    <th>뜻</th>
+                </tr>
+            </table>
+            <div class="btns">
+                <button type="button" onclick="make_once()">단어장 추가</button>
+                <button  type="button" onclick="make_ten()">단어장 추가*10</button>
+                <button type="reset" onclick="remove_once()">단어장 제거</button>
+                <button type="reset" onclick="remove_ten()">단어장 제거*10</button>
+                <button button type="submit" >저장하기</button>
+                <button type="reset">내용 초기화</button>
+               
+            </div>  
+        </form>
+        
+    </section>
+    <script>
+        let input_bar = document.querySelectorAll(".input_bar");
+        let word_book_size = 1;
+
+        make_ten();
+        //기본 10개 생성
+
+        // 단어장 1개씩 추가하는 함수
+        function make_once(){
+            //요소 선언 및 생성
+            let new_td = document.createElement("td");
+            let new_tr = document.createElement("tr");
+            let tbody = document.querySelector("tbody");
+            let table = document.querySelector("table");
+            let new_node = document.createElement("p");
+            new_node.innerText= word_book_size;
+
+            tbody.appendChild(new_tr)
+            new_tr.appendChild(new_td)
+            new_td.appendChild(new_node)
+            
+
+            //name이 word인 input 생성 및 자식요소로 추가
+            let new_input = document.createElement("input");
+            new_input.setAttribute("type","text");
+            new_input.setAttribute("name","input_word"+word_book_size);
+            new_input.setAttribute("class","input_bar");
+
+            //새로운 td생성
+            new_td = document.createElement("td");
+            new_tr.appendChild(new_td)
+            new_td.appendChild(new_input);
+
+
+            //name이 mean인 input 생성 및 자식요소로 추가
+            new_input = document.createElement("input");
+            new_td = document.createElement("td");
+            new_input.setAttribute("type","text");
+            new_input.setAttribute("name","input_mean"+word_book_size);
+            new_input.setAttribute("class","input_bar");
+            tbody.appendChild(new_tr)
+            new_tr.appendChild(new_td)
+            new_td.appendChild(new_input)
+
+            //다음 번호로 넘어가기 위해 번호 증가
+            word_book_size++
+        }
+
+        //단어장 10개 추가
+        function make_ten(){
+
+            for(let i=1;i<=10;i++){
+                    make_once();
+            }
+            
+        }
+
+
+        //단어장 1개씩 제거하는 함수
+        function remove_once(){
+
+            if(word_book_size<=1){
+                alert("더이상 지울 수 없습니다");
+            }else{
+                let tbody = document.querySelector("tbody");
+                let tr = tbody.lastChild;
+                tbody.removeChild(tr)
+                word_book_size--
+                controll_word_num();
+            }
+            
+        }
+
+        //단어장 10개씩 제거하는 함수
+        function remove_ten(){
+            if(word_book_size<11){
+                alert("10개 미만일 경우 하나씩 지워주세요");
+            }else{
+                    for(let i=1;i<=10;i++){
+                    remove_once();
+                }
+                controll_word_num();
+            }
+            
+            
+        }
+        
+        //번호 1미만으로 떨어지지 않게 조정하는 함수
+        function controll_word_num (){
+            if(word_book_size<=0){
+                word_book_size = 1;
+            }
+        }
+        
+
+    </script>
+</body>
+</html>
