@@ -1,0 +1,48 @@
+@charset "UTF-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    margin: 0 auto;
+    width: 1200px;
+    height: 800px;
+}
+
+.section_img{
+    background-image: linear-gradient(
+        rgba(236, 225, 225, 0.3),
+        rgba(214, 197, 197, 0.3)
+      ), url("../img/pexels-pixabay-261621.jpg");
+  background-size: cover;
+  background-position-x: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 400px;
+    text-align: center;
+    font-size: 45px;
+    color: aliceblue;
+    line-height: 400px;
+    font-weight: 600;
+}
+    
+
+form>table{
+    margin: 0 auto ;
+    height: auto;
+    /* background-color: blanchedalmond; */
+    height: 500px;
+    align-items: center;
+}
+
+.sign_up_input{
+    width: 200px;
+    height: 45px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.btns{
+    width: 80px;
+    height: 35px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디/비밀번호 찾기</title>
+    <link rel="stylesheet" href="./css/search_info.css">
+</head>
+<body>
+    <section>
+        <div class="section_img" >아이디/비밀번호 찾기</div>
+        <form action="search_id_controller" method="post" >
+          <table>
+            <tr>
+              <td><lable for="user_id">닉네임</lable></td>
+              <td><input id="user_id" class="sign_up_input" type="text" name="user_id" placeholder="6~15자리의 영문&숫자 입력"></td>
+            </tr>
+            <tr>
+              <td>이메일</td>
+              <td><input class="sign_up_input" type="text" name="user_email" placeholder="Loiloi1234@naver.com"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                  <button class="btns" type="submit">찾기</button>
+                </td>
+              </tr>
+        </form>
+        <form action="search_pw_controller" method="post">
+            <tr>
+                <td>아이디</td>
+                <td><input class="sign_up_input" type="password" name="user_pw" placeholder="6~15자리의 영문&숫자 입력"></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input class="sign_up_input" type="text" name="user_email" placeholder="Loiloi1234@naver.com"></td>
+              </tr>
+            <tr>
+              <td colspan="2" align="center">
+                <button class="btns" type="submit">찾기</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </section>
+</body>
+</html>

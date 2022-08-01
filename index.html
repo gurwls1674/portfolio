@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loiloi 우리들의 학습 도우미</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <header>
+    <a href="./index.html"><img class="header_logo" src="./HatchfulExport-All/linkedin_banner_image_1.png" alt="로고이미지"></a>
+    <h2>Loiloi 학습 도우미</h2>
+    <img class="header_icon" src="./img/icons8-schoolboy-at-a-desk-48.png" alt="">
+  </header>
+  <nav>
+    <a href="./learn.html">Learn</a>
+    <a href="./Review.html">Review</a>
+    <a href="./Myinfo.html">Myinfo</a>
+    <a href="./Communicate.html">Communicate</a>
+  </nav>
+    <section>
+      <div class="bg">
+        <video muted autoplay loop>
+          <source src="./background_movie/video_1.mp4" type="video/mp4">
+        </video>
+        <div class="text">
+          <p>Review ourselves</p>
+        </div>
+      </div>
+
+      <div class="index_contentbox1">
+        <div class="index_content1" id="chart_img">
+          <div class="chart_img_div">
+            <p>학습 통계</p>
+          </div>
+          <!-- <div id="curve_chart" style="width: 400px; height: 300px"></div> -->
+        </div>
+        <div class="index_content1" id="previous_img" >
+          <div class="previous_img_div">
+            <p>최근에 사용한 문서</p>
+          </div>
+        </div>
+        <div class="index_content1" id="best_img">
+          <div class="best_img_div">
+            <p>많은 사람들이 사용한 문서</p>
+          </div>
+        </div>
+        <a href="./memorization_words.html" class="index_content1" id="word_img">
+          <div class="word_img_div">
+            <p>단어 학습</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="login_modal">
+        <p>반갑습니다!</p>
+        
+        <form action="../process/login_process.jsp" method="post" class="login_form">
+          <table>
+            <tr>
+              <td>
+                <label for="user_id">
+                  <p>아이디</p>
+                </label>
+                  <input type="text" name="user_id" id="user_id" class="login_input">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="user_pw">
+                  <p>비밀번호</p>
+                </label>
+                  <input type="text" name="user_pw" id="user_pw"  class="login_input">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="id_remember">아이디 기억하기</label><input type="checkbox" id="id_remember">
+                <br>
+                <a class="login_to_link" href="./sign_up.html">회원가입</a>
+                <a class="login_to_link" href="../sign_up.jsp">아이디/비밀번호 찾기</a>
+              </td>
+            </tr>
+          </table>
+          <div>
+            <button class="login_submit_btn" type="submit"><img src="./img/icons8-login-50.png" alt=""></button>
+            <img class="login_close_btn" src="./img/icons8-close-window-50.png" alt="로그인창 닫기">
+          </div>
+        </form>
+        
+      </div>
+
+    </section>
+
+    <footer>
+      <h3>Loiloi learning helper copyright &copy; Portfolio made by HyuckJin Choi in GreencomAcademy  </h3>
+    </footer>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['week', 'last week', 'this week'],
+          ['1',  100,      40],
+          ['2',  55,      80],
+          ['3',  66,       100],
+          ['4',  100,      90]
+        ]);
+
+        var options = {
+          title: 'Review 성취도',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+
+      let user_icon = document.querySelector(".header_icon");
+      let login_modal = document.querySelector(".login_modal");
+      let login_close_btn = document.querySelector(".login_close_btn");
+      user_icon.addEventListener("mouseover",display_login_modal );
+      login_close_btn.addEventListener("click",disappear_login_modal);
+
+      function display_login_modal (){
+        login_modal.style.display = 'block';
+      }
+
+      function disappear_login_modal (){
+        login_modal.style.display = 'none';
+      }
+
+      // let word_go  = document.querySelector(".word_img_div");
+      // let chart_go  = document.querySelector(".chart_img_div");
+      // let best_go  = document.querySelector(".best_img_div");
+      // let previous_go  = document.querySelector(".previous_img_div");
+      
+      // word_go.addEventListener("click",go());
+
+      // function go (url){
+      //   location.href = url;
+      // }
+
+    </script>
+</body>
+</html>
