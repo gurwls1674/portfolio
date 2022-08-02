@@ -12,7 +12,7 @@
         <h3>
             Success is walking from failure to failure with no loss of enthusiasm - Winston Churchill
         </h3>
-        <form action="word_controller">
+        <form action="word_controller" >
             <table border="1" class="word_sheet_table">
                 <tr>
                     <th>번호</th>
@@ -25,7 +25,7 @@
                 <button  type="button" onclick="make_ten()">단어장 추가*10</button>
                 <button type="reset" onclick="remove_once()">단어장 제거</button>
                 <button type="reset" onclick="remove_ten()">단어장 제거*10</button>
-                <button button type="submit" >저장하기</button>
+                <button button type="button" >저장하기</button>
                 <button type="reset">내용 초기화</button>
                
             </div>  
@@ -125,8 +125,81 @@
                 word_book_size = 1;
             }
         }
-        
-
     </script>
+
+<script>
+    // 인풋창 방향키로 이동하기 
+
+	const inputs = document.querySelectorAll("input");
+	const total = inputs.length;
+
+	const cols = 2; // 컬럼수
+	//const rows = Math.ceil(total/cols); // 줄수
+
+	function keyevent(event) {
+		const keycode = event.keyCode;
+		const idx = Array.from(document.querySelectorAll('input')).indexOf(event.target);
+
+		switch (keycode) {
+			case(33) : // PageUp
+				document.querySelectorAll('input')[0].focus();
+				break;
+
+			case(34) : // PageDown
+				document.querySelectorAll('input')[total-1].focus();
+				break;
+			case(37) : // Left
+				if(idx===0){
+					return false;      
+				}else{  
+					document.querySelectorAll('input')[idx-1].focus();
+				}
+				break;
+			case(38) : // Up
+				if(idx < cols){
+					return false;      
+				}else{
+					document.querySelectorAll('input')[idx-cols].focus();
+				} 
+				break;
+			case(39) : // Right
+				if(idx===(total-1)){ 
+					return false;      
+				}else{      
+					document.querySelectorAll('input')[idx+1].focus();
+				} 
+				break;
+
+			case (40) : // Down
+				if(idx+cols >= total){
+					return false;       
+				}else{
+					document.querySelectorAll('input')[idx+cols].focus();
+				}
+				break;
+
+			default : 
+				return false;
+				break;
+		}
+	}
+
+
+	
+	function formCheck(e) {
+		// 문제가 있으면
+		// e.preventDefault();
+	}
+	
+	document.querySelector("form").addEventListener('submit', formCheck);
+	for(const item of inputs) {
+		item.addEventListener('keydown', keyevent);
+	}
+
+</script>
+
+<script>
+    
+</script>
 </body>
 </html>

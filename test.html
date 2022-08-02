@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>키보드를 이용한 포커스 이동</title>
+</head>
+<body>
+	<h1>키보드로 이동하기</h1>
+	
+	<form name="frm">
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a"><input name="b"><input name="c"><br>
+		<input name="a">
+		
+		<button>전송</button>
+	</form>
+	
+	
+</body>
+<script>
+	const inputs = document.querySelectorAll("input");
+	const total = inputs.length;
+
+	const cols = 2; // 컬럼수
+	//const rows = Math.ceil(total/cols); // 줄수
+
+	function keyevent(event) {
+		const keycode = event.keyCode;
+		const idx = Array.from(document.querySelectorAll('input')).indexOf(event.target);
+
+		switch (keycode) {
+			case(33) : // PageUp
+				document.querySelectorAll('input')[0].focus();
+				break;
+
+			case(34) : // PageDown
+				document.querySelectorAll('input')[total-1].focus();
+				break;
+			case(37) : // Left
+				if(idx===0){
+					return false;      
+				}else{  
+					document.querySelectorAll('input')[idx-1].focus();
+				}
+				break;
+			case(38) : // Up
+				if(idx < cols){
+					return false;      
+				}else{
+					document.querySelectorAll('input')[idx-cols].focus();
+				} 
+				break;
+			case(39) : // Right
+				if(idx===(total-1)){ 
+					return false;      
+				}else{      
+					document.querySelectorAll('input')[idx+1].focus();
+				} 
+				break;
+
+			case (40) : // Down
+				if(idx+cols >= total){
+					return false;       
+				}else{
+					document.querySelectorAll('input')[idx+cols].focus();
+				}
+				break;
+
+			default : 
+				return false;
+				break;
+		}
+	}
+
+
+	
+	function formCheck(e) {
+		// 문제가 있으면
+		// e.preventDefault();
+	}
+	
+	document.querySelector("form").addEventListener('submit', formCheck);
+	for(const item of inputs) {
+		item.addEventListener('keydown', keyevent);
+	}
+
+</script>
+</html>

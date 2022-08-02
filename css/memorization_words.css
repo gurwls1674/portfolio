@@ -32,7 +32,7 @@ th{
     border: none;
     text-align: center;
     font-size: 25px;
-    color: aliceblue;
+    color: rgb(51, 51, 51);
 }
 
 .input_bar:focus {
