@@ -12,6 +12,34 @@
     <section>
         <h3>나의 학습통계</h3>
         <div id="curve_chart" style="width: 400px; height: 300px"></div>
+        <p>ooo님의 학습 통계입니다.</p>
+        <p>지난주 보다 학습량이 2시간 늘었습니다!</p>
+        <p>정답률이 올랐습니다</p>
+
+        <table border="1">
+            <tr>
+                <th>주차</th>
+                <th>학습시간</th>
+                <th>작성한 리뷰 수</th>
+                <th>푼 문제 수</th>
+                <th>정답률</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1시간</td>
+                <td>3</td>
+                <td>5</td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>3시간</td>
+                <td>1</td>
+                <td>3</td>
+                <td>70%</td>
+            </tr>
+        </table>
+
     </section>
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -22,10 +50,9 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['week', 'last week', 'this week'],
-          ['1',  100,      50],
-          ['2',  55,      100],
-          ['3',  66,       80],
-          ['4',  100,      900]
+          ['학습시간',  1,      3],
+          ['리뷰 수',  3,      1],
+          ['문제 수',  5,       3]
         ]);
 
         var options = {
